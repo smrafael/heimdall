@@ -166,6 +166,41 @@
 		<jackson.version>2.9.2</jackson.version>
 		<spring-cloud.version>Edgware.SR6</spring-cloud.version>
 		<versao>${project.version}</versao>
+
+		<sonar.sources>src/main</sonar.sources>
+		<sonar.exclusions>src/main/resources/**</sonar.exclusions>
+		<sonar.test.exclusions>src/test/**</sonar.test.exclusions>
+		<sonar.coverage.jacoco.xmlReportPaths>target/jacoco-report/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+		<sonar.coverage.exclusions>
+			**/core/converter/**,
+			**/core/dto/**,
+			**/core/entity/**,
+			**/core/enums/**,
+			**/core/environment/**,
+			**/core/interceptor/**,
+			**/core/repository/**,
+			**/core/trace/**,
+
+			**/api/dto/**,
+			**/api/entity/**,
+			**/api/enums/**,
+			**/api/environment/**,
+			**/api/filter/**,
+			**/api/repository/**,
+			**/api/security/**,
+			**/api/util/**,
+
+			**/gateway/appender/**,
+			**/gateway/failsafe/**,
+			**/gateway/listener/**,
+			**/gateway/router/**,
+			**/gateway/task/**,
+			**/gateway/trace/**,
+
+			**/middleware/enums/**,
+			**/middleware/exception/**,
+			**/middleware/spec/**,
+		</sonar.coverage.exclusions>
 	</properties>
 
 	<dependencies>
@@ -331,6 +366,11 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.4.0.905</version>
 			</plugin>
 		</plugins>
 	</build>
